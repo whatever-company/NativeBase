@@ -36,8 +36,10 @@ class Footer extends Component {
     let oldHeight = null;
     if (this.props.style.height != undefined) {
       oldHeight = this.props.style.height;
-    }else if(this.props.style[1]){
-      oldHeight= this.props.style[1].height ? this.props.style[1].height : this.props.style[0].height;
+    } else if (this.props.style[1]) {
+      oldHeight = this.props.style[1].height
+        ? this.props.style[1].height
+        : this.props.style[0].height;
     } else {
       oldHeight = this.props.style[0].height;
     }
@@ -81,7 +83,7 @@ class Footer extends Component {
     const variables = this.context.theme
       ? this.context.theme["@@shoutem.theme/themeStyle"].variables
       : variable;
-    return variable.isIphoneX ? (
+    return variables.isIphoneX ? (
       <View
         ref={c => (this._root = c)}
         {...this.props}

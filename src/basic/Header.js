@@ -34,7 +34,9 @@ class Header extends Component {
     if (this.props.style.height != undefined) {
       oldHeight = this.props.style.height;
     } else if (this.props.style[1]) {
-      oldHeight = this.props.style[1].height ? this.props.style[1].height : this.props.style[0].height;
+      oldHeight = this.props.style[1].height
+        ? this.props.style[1].height
+        : this.props.style[0].height;
     } else {
       oldHeight = this.props.style[0].height;
     }
@@ -52,7 +54,9 @@ class Header extends Component {
     let topPadder = null;
     let style = StyleSheet.flatten(this.props.style);
     if (style.padding !== undefined || style.paddingTop !== undefined) {
-      topPadder = (style.paddingTop ? style.paddingTop : style.padding) + InsetValues.topInset;
+      topPadder =
+        (style.paddingTop ? style.paddingTop : style.padding) +
+        InsetValues.topInset;
     } else {
       topPadder = InsetValues.topInset;
     }
@@ -80,7 +84,7 @@ class Header extends Component {
           }
           translucent={this.props.transparent ? true : this.props.translucent}
         />
-        {variable.isIphoneX ? (
+        {variables.isIphoneX ? (
           <View
             ref={c => (this._root = c)}
             {...this.props}
@@ -99,8 +103,8 @@ class Header extends Component {
             ]}
           />
         ) : (
-            <View ref={c => (this._root = c)} {...this.props} />
-          )}
+          <View ref={c => (this._root = c)} {...this.props} />
+        )}
       </View>
     );
   }
